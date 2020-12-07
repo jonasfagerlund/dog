@@ -15,9 +15,9 @@ public class DogTest {
     assignment.addDog(new Dog("Annie", "golden", 7, 2));
     assignment.addDog(new Dog("Ida", "tax", 5, 10));
     assignment.addDog(new Dog("banne", "tax", 8, 6));
-    assignment.addDog(new Dog("anna", "tax", 10, 4));
-    assignment.addDog(new Dog("banne", "tax", 8, 6));
-    assignment.addDog(new Dog("anna", "tax", 10, 4));
+    assignment.addDog(new Dog("anna1", "tax", 10, 4));
+    assignment.addDog(new Dog("banne", "varg", 8, 6));
+    assignment.addDog(new Dog("anna", "golden", 10, 4));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
     assignment.addDog(new Dog("banne", "tax", 8, 6));
     assignment.addDog(new Dog("anna", "pudel", 1, 4));
@@ -33,6 +33,7 @@ public class DogTest {
       System.out.println(assignment.getDogs().get(i));
     }
     System.out.println("------------------");
+    System.out.println("\n");
 
     // assignment.addOwner(new Owner("Olle"));
     // assignment.addOwner(new Owner("Henrik"));
