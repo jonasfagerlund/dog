@@ -164,74 +164,26 @@ public class Assignment {
   }
 
   /**
-   * Sortering enligt insertion sort. Algoritmen börjar med objektet på index 1
-   * och jämför med objektet ett steg till vänster. Är det mindre byter de plats.
-   * Sen går det vidare till index 2. Det objektet jämför sig först med objektet
-   * ett steg till vänster och byter plats om det är mindre och jämför sig sedan
-   * men obejktet ett steg till vänster till.
+   * Sortering enligt insertion sort.
    */
-  public List<Dog> sortDogs( /* du får ingen arrayList här */) {
+  public List<Dog> sortDogs() {
     for (int i = 1; i < listOfDogs.size(); i++) {
-      // if (listOfDogs.get(i).getTailLength() == listOfDogs.get(i - 1).getTailLength()) {
-      //   sortDogsByName(listOfDogs, i);
-      // }
 
       Dog dogInAction = listOfDogs.get(i);
+
       int indexCounter = i - 1;
-        // for loop
-        // // i forloopen ha en ifsats som kontrollerar
-        // 1. är svanslängderna lika --> då sortera efter namn
-        // 2. else if(den en a svanse är större/mindre) --> byt plats
-      // for(int j = i+1; j< listOfDogs.size(); j++) {/* ... */ }
+
       while (indexCounter >= 0 && dogInAction.getTailLength() <= listOfDogs.get(indexCounter).getTailLength()) {
-
-
-        if (indexCounter >= 0 && dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()){
+        
+        if (dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()){
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
-        } else if (indexCounter >= 0 && dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName()) < 0) {
+        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName()) < 0) {
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
         }
-
         if (indexCounter >= 0) {indexCounter--;}
-        // kontrollera om lika --> sortera efter namn; uppdatera räknare ; break
-
-        // vanlig sorterin...
-
-        // metodanrop som sorterar efter namn
-        //while-loop till som jämför om de är olika stora
-        // while (indexCounter >= 1 && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName()) < 0) {
-        //   listOfDogs.remove(dogInAction);
-        //   listOfDogs.add(indexCounter - 1, dogInAction);
-        //   indexCounter--;
-        // }
       }
-      // Fortsätter vid lika
-    }
-    return listOfDogs;
-  }
-
-  private List<Dog> sortDogsByName(List<Dog> list, int i) {
-    Dog dogInAction = listOfDogs.get(i);
-    int indexCounter = i - 1;
-
-    while (indexCounter >= 0 && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName()) < 0) {
-      listOfDogs.remove(dogInAction);
-      listOfDogs.add(indexCounter, dogInAction);
-      indexCounter--;
-    }
-    return listOfDogs;
-  }
-
-  private List<Dog> sortDogsByTailLength(List<Dog> list, int i) {
-    Dog dogInAction = listOfDogs.get(i);
-    int indexCounter = i - 1;
-
-    while (indexCounter >= 0 && dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()) {
-      listOfDogs.remove(dogInAction);
-      listOfDogs.add(indexCounter, dogInAction);
-      indexCounter--;
     }
     return listOfDogs;
   }

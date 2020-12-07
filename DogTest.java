@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class DogTest {
   public static void main(String[] args){
 
@@ -10,11 +8,7 @@ public class DogTest {
 
     // System.out.println("Increased age of" + d1);
 
-
-
-
-    
-    Assignment assignment = new Assignment();
+  Assignment assignment = new Assignment();
 
     assignment.addDog(new Dog("emma", "pudel", 1, 4));
     assignment.addDog(new Dog("sofia", "tax", 14, 8));
@@ -34,13 +28,11 @@ public class DogTest {
     assignment.addDog(new Dog("emma", "tax", 1, 5));
 
 
-    System.out.print("\n");
-    System.out.print("\n");
+    System.out.println("Osorterad lista");
     for (int i = 0; i < assignment.getDogs().size(); i++) {
       System.out.println(assignment.getDogs().get(i));
     }
-    System.out.print("\n");
-    System.out.print("\n");
+    System.out.println("------------------");
 
     // assignment.addOwner(new Owner("Olle"));
     // assignment.addOwner(new Owner("Henrik"));
@@ -52,7 +44,8 @@ public class DogTest {
 
     // assignment.removeDog();
 
-    for(int i = 0; i < assignment.getDogs().size(); i++){
+    System.out.println("Sorterad lista");
+    for (int i = 0; i < assignment.getDogs().size(); i++) {
       System.out.println(assignment.getDogs().get(i));
     }
 
