@@ -5,6 +5,9 @@ public class Sort {
     
     ArrayList<String> listOfStrings = new ArrayList<>();
 
+    System.out.println("Ceasar".compareTo("Boole"));
+    System.out.println("-------------------------");
+
     listOfStrings.add("Jonas");
     listOfStrings.add("Fido");
     listOfStrings.add("Hanna");

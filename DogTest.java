@@ -16,20 +16,22 @@ public class DogTest {
     
     Assignment assignment = new Assignment();
 
-    assignment.addDog(new Dog("emma", "tax", 1, 5));
+    assignment.addDog(new Dog("emma", "pudel", 1, 4));
     assignment.addDog(new Dog("sofia", "tax", 14, 8));
-    assignment.addDog(new Dog("Annie", "tx", 7, 2));
+    assignment.addDog(new Dog("Annie", "golden", 7, 2));
     assignment.addDog(new Dog("Ida", "tax", 5, 10));
+    assignment.addDog(new Dog("banne", "tax", 8, 6));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
     assignment.addDog(new Dog("banne", "tax", 8, 6));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
     assignment.addDog(new Dog("banne", "tax", 8, 6));
-    assignment.addDog(new Dog("anna", "tx", 1, 4));
-    assignment.addDog(new Dog("anna", "tax", 1, 4));
-    assignment.addDog(new Dog("anna2", "tax", 10, 4));
-    assignment.addDog(new Dog("banne", "tsx", 1, 4));
+    assignment.addDog(new Dog("anna", "pudel", 1, 4));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
+    assignment.addDog(new Dog("banne", "dalmatin", 1, 4));
+    assignment.addDog(new Dog("anna", "tax", 10, 4));
+    assignment.addDog(new Dog("anna", "golden", 10, 4));
+    assignment.addDog(new Dog("emma", "tax", 1, 5));
 
 
     System.out.print("\n");
@@ -40,7 +42,7 @@ public class DogTest {
     System.out.print("\n");
     System.out.print("\n");
 
-    assignment.addOwner(new Owner("Olle"));
+    // assignment.addOwner(new Owner("Olle"));
     // assignment.addOwner(new Owner("Henrik"));
 
     // Owner olle = assignment.findOwner("Olle");
@@ -54,8 +56,11 @@ public class DogTest {
       System.out.println(assignment.getDogs().get(i));
     }
 
+
     // assignment.giveDogOwner();
     // assignment.giveDogOwner();
+
+    // assignment.listDogs();
 
 
     // // System.out.println(assignment.findOwner("Olle").getOwnedDogs());
