@@ -27,7 +27,7 @@ public class DogTest {
     assignment.addDog(new Dog("banne", "tax", 8, 6));
     assignment.addDog(new Dog("anna", "tx", 1, 4));
     assignment.addDog(new Dog("anna", "tax", 1, 4));
-    assignment.addDog(new Dog("anna", "tax", 10, 4));
+    assignment.addDog(new Dog("anna2", "tax", 10, 4));
     assignment.addDog(new Dog("banne", "tsx", 1, 4));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
 

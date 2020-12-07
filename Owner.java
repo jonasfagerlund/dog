@@ -18,7 +18,7 @@ public class Owner {
   public void addDogToOwner(Dog d){
 
     Dog[] longerArray = new Dog[ownedDogs.length + 1];
-    
+
     for(int i = 0; i < ownedDogs.length; i++){
       longerArray[i] = ownedDogs[i];
     }
@@ -26,6 +26,8 @@ public class Owner {
     longerArray[longerArray.length - 1] = d;
 
     ownedDogs = longerArray;
+
+    d.addOwnerToDog(this);
 
   }
 

@@ -42,13 +42,9 @@ public class Dog{
   }
 
   // antagligen inte nödvändig
-  // public boolean haveOwner(){
-  //   if (owner == null) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
+  private boolean isOwned(){
+    return owner != null;
+  }
 
   public int getWeight() {
     return weight;
@@ -63,7 +59,10 @@ public class Dog{
   }
 
   public void addOwnerToDog(Owner o){
-      owner = o;
+    if (!isOwned()) {
+      this.owner = o;
+      this.owner.addDogToOwner(this);
+    }  
   }
 
   public String toString() {
