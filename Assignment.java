@@ -165,6 +165,17 @@ public class Assignment {
 
   /**
    * Sortering enligt insertion sort.
+   * Metoden bygger på en överliggande for-loop
+   * som plockar ut en hund i listan. Den börjar på index 1 och jämför med index
+   * 0. Metoden går in i while-loopen om hunden ett steg till vänster har större
+   * eller lika lång svans. I while-loopen finns en if-sats som gör att hunden i
+   * fråga flyttar ett steg till vänster om hunden som står till vänster har
+   * längre svans eller om de har samma längd men olika namn. I slutet av
+   * while-loopen minskar variabeln som håller koll på vilket index som är ett
+   * steg bakom hunden som sorteras. Blir indexCounter -1 betyder det att hunden
+   * som sorteras är på index 0 och kan därmed inte jämföras med något. Då kommer
+   * while-loopen avslutas eftersom ett vilkor är att indexCounter måste vara lika
+   * med eller större än 0. När det är klart sorteras nästa hund på listan.
    */
   public List<Dog> sortDogs() {
     for (int i = 1; i < listOfDogs.size(); i++) {
@@ -178,11 +189,11 @@ public class Assignment {
         if (dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()){
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
-        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName()) < 0) {
+        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName().substring(0, 1)) > 0) {
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
         }
-        if (indexCounter >= 0) {indexCounter--;}
+        indexCounter--;
       }
     }
     return listOfDogs;

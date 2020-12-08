@@ -10,29 +10,21 @@ public class DogTest {
 
   Assignment assignment = new Assignment();
 
-    assignment.addDog(new Dog("emma", "pudel", 1, 4));
+    assignment.addDog(new Dog("anna", "tax", 1, 4));
+    assignment.addDog(new Dog("emma", "tax", 1, 4));
     assignment.addDog(new Dog("sofia", "tax", 14, 8));
-    assignment.addDog(new Dog("Annie", "golden", 7, 2));
+    assignment.addDog(new Dog("Annie", "tax", 7, 2));
     assignment.addDog(new Dog("Ida", "tax", 5, 10));
     assignment.addDog(new Dog("banne", "tax", 8, 6));
-    assignment.addDog(new Dog("anna1", "tax", 10, 4));
-    assignment.addDog(new Dog("banne", "varg", 8, 6));
-    assignment.addDog(new Dog("anna", "golden", 10, 4));
     assignment.addDog(new Dog("anna", "tax", 10, 4));
-    assignment.addDog(new Dog("banne", "tax", 8, 6));
-    assignment.addDog(new Dog("anna", "pudel", 1, 4));
-    assignment.addDog(new Dog("anna", "tax", 10, 4));
-    assignment.addDog(new Dog("banne", "dalmatin", 1, 4));
-    assignment.addDog(new Dog("anna", "tax", 10, 4));
-    assignment.addDog(new Dog("anna", "golden", 10, 4));
-    assignment.addDog(new Dog("emma", "tax", 1, 5));
 
 
-    System.out.println("Osorterad lista");
+    System.out.println("\n");
+    System.out.println("Osorterad lista - samma svanslängd");
     for (int i = 0; i < assignment.getDogs().size(); i++) {
       System.out.println(assignment.getDogs().get(i));
     }
-    System.out.println("------------------");
+    System.out.println("---------------------------------------------------");
     System.out.println("\n");
 
     // assignment.addOwner(new Owner("Olle"));
@@ -49,6 +41,34 @@ public class DogTest {
     for (int i = 0; i < assignment.getDogs().size(); i++) {
       System.out.println(assignment.getDogs().get(i));
     }
+    System.out.println("---------------------------------------------------");
+    System.out.println("\n");
+
+
+    assignment.addDog(new Dog("anna", "golden", 1, 4));
+    assignment.addDog(new Dog("emma", "pudel", 1, 4));
+    assignment.addDog(new Dog("sofia", "tax", 14, 8));
+    assignment.addDog(new Dog("Annie", "golden", 1, 1));
+    assignment.addDog(new Dog("Ida", "tax", 5, 10));
+    assignment.addDog(new Dog("banne", "tax", 8, 6));
+    assignment.addDog(new Dog("anna", "golden", 1, 4));
+
+    System.out.println("Osorterad lista - blandade längder");
+    for (int i = 0; i < assignment.getDogs().size(); i++) {
+      System.out.println(assignment.getDogs().get(i));
+    }
+    System.out.println("---------------------------------------------------");
+    System.out.println("\n");
+
+
+    assignment.sortDogs();
+
+    System.out.println("Sorterad lista");
+    for (int i = 0; i < assignment.getDogs().size(); i++) {
+      System.out.println(assignment.getDogs().get(i));
+    }
+    System.out.println("---------------------------------------------------");
+    System.out.println("\n");
 
 
     // assignment.giveDogOwner();
