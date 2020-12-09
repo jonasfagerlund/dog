@@ -37,8 +37,6 @@ public class Assignment {
   private KeyboardInput keyboardInput = new KeyboardInput();
 
   public void waitForUserInput() { // Varför behövs denna metod?
-    // Ersätt raden nedan med NAMNPÅSCANNER.nextLine() eller motsvarande anrop på
-    // din egen klass
     keyboardInput.readNextLine();
   }
 
@@ -203,7 +201,7 @@ public class Assignment {
         if (dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()){
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
-        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName().substring(0, 1)) > 0) {
+        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName().substring(0, 2)) > 0) {
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
         }

@@ -64,7 +64,7 @@ public class Dog{
     }  
   }
 
-   public void removeOwner(){
+   public void removeOwnerFromOwner(){
      if(haveOwner()){
        owner = null;
      }

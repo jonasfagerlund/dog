@@ -55,7 +55,7 @@ public class Owner {
       if(dogToCopy != d){
         tempHolding.add(dogToCopy);
       } else {
-        d.removeOwner();
+        d.removeOwnerFromOwner();
       }
     }
 
@@ -66,19 +66,20 @@ public class Owner {
     ownedDogs = shorterArray;
   }
 
-  // public void removeOwnedDogs(){
-  //   for(int i = 0; i < ownedDogs.length; i++){
-  //     Dog d = ownedDogs[i];
-  //     d.
-  //   }
-  // }
-
   public Dog[] getOwnedDogs(){
     return ownedDogs;
   }
 
   public String toString(){
-    return String.format("<%s owns%s>", name, Arrays.toString(ownedDogs));
+    return String.format("<%s owns%s>", name, Arrays.toString(nameOfOwnedDogs(ownedDogs)));
+  }
+
+  private String[] nameOfOwnedDogs(Dog[] ownedDogs){
+    String[] nameOfDogs = new String[ownedDogs.length];
+    for(int i = 0; i < ownedDogs.length; i++){
+      nameOfDogs[i] = ownedDogs[i].getName();
+    }
+    return nameOfDogs;
   }
   
 }
