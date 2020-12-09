@@ -41,32 +41,40 @@ public class Dog{
     return breed;
   }
 
-  // antagligen inte nödvändig
-  private boolean isOwned(){
-    return owner != null;
-  }
-
   public int getWeight() {
     return weight;
   }
 
   public Owner getOwner(){
-    return owner;
+      return owner;
   }
 
   public double getTailLength() {
     return tailLength;
   }
 
+  public boolean haveOwner(){
+    return owner != null;
+  }
+
   public void addOwnerToDog(Owner o){
-    if (!isOwned()) {
-      this.owner = o;
+    if (!haveOwner()) {
+      owner = o;
       this.owner.addDogToOwner(this);
     }  
   }
 
+   public void removeOwner(){
+     if(haveOwner()){
+       owner = null;
+     }
+   }
+
   public String toString() {
-    return String.format("name=%s age=%d breed=%s weight=%d tail length=%s", name, age, breed, weight, tailLength);
+    if(haveOwner()){
+      return String.format("<%s %d %s %d tail %s owner=%s>", name, age, breed, weight, tailLength, owner.getName());
+    }
+    return String.format("<%s %d %s %d tail %s", name, age, breed, weight, tailLength);
   }
 
   // Metod för att räkna ut tailLength

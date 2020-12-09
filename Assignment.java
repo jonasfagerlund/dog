@@ -22,8 +22,8 @@ public class Assignment {
                                                               // stegen
   public static final String GIVE_DOG_METHOD = "giveDogOwner"; // U8.3 och framåt
   public static final String LIST_OWNERS_METHOD = "listOwners"; // U8.4
-  public static final String OWNER_OF_DOG_METHOD = ""; // U8.5, obs! metoden ska ligga i Owner-klassen
-  public static final String REMOVE_OWNER_METHOD = ""; // U8.7 och U9.6
+  public static final String OWNER_OF_DOG_METHOD = "ownSpecificDog"; // U8.5, obs! metoden ska ligga i Owner-klassen
+  public static final String REMOVE_OWNER_METHOD = "removeOwner"; // U8.7 och U9.6
   public static final String START_AUCTION_METHOD = ""; // U9.1 och framåt
   public static final String FIND_AUCTION_METHOD = ""; // U9.2 - hjälpmetod tänkt att användas i de följande stegen
   public static final String MAKE_BID_METHOD = ""; // U9.3 och framåt
@@ -74,12 +74,33 @@ public class Assignment {
 
   public void removeDog() {
     String name = keyboardInput.readString("Enter the name of the dog");
-    Dog dog = findDog(name);
-    if (dog != null) {
-      listOfDogs.remove(listOfDogs.indexOf(dog));
-      System.out.println(dog.getName() + " is removed from the register");
+    Dog d = findDog(name);
+    if (d != null) {
+      if (d.haveOwner()){d.getOwner().removeDogFromOwner(d);}
+      listOfDogs.remove(listOfDogs.indexOf(d));
+      System.out.println(d.getName() + " is removed from the register");
+
     } else {
       System.out.println("Error: no such dog");
+    }
+  }
+
+  public void removeOwner(){
+    String name = keyboardInput.readString("Enter name of the user");
+    Owner o = findOwner(name);
+
+    if(o != null) {
+      if(o.getOwnedDogs().length > 0){
+        for(Dog dogToRemove : o.getOwnedDogs()){
+          Dog d = dogToRemove;
+          listOfDogs.remove(d);
+          o.removeDogFromOwner(d);
+        }
+      }
+      listOfOwners.remove(listOfOwners.indexOf(o));
+      System.out.println(o.getName() + " is removed from the register");
+    } else {
+      System.out.println("Error: no such owner");
     }
   }
 
@@ -109,34 +130,28 @@ public class Assignment {
     return null;
   }
 
-  /**
-   * Försök att göra en genrell metod för att söka igenom listorna som finns.
-   * Problem uppstår när metoden ska retunera olika objekt beroende på vilka
-   * parametrar som förs in.
-   */
-  /*
-   * public void find(String name, ArrayList arrList, String type) { for(int i =
-   * 0; i < arrList.size(); i ++) { if (name.equals(arrList.get(i).getName())) {
-   * return arrList.get(i); } } System.out.println("Error: no such " + type);
-   * return null; }
-   */
-
   public List<Dog> getDogs() {
     return listOfDogs;
   }
 
   public void listOwners() {
+
     if (listOfOwners.size() == 0) {
       System.out.println("Error: no owners in register");
     } else {
+
       for (int i = 0; i < listOfOwners.size(); i++) {
+
         Owner o = listOfOwners.get(i);
+
         Dog[] dogs = o.getOwnedDogs();
+
         String[] nameOfDogs = new String[dogs.length];
+
         for (int n = 0; n < nameOfDogs.length; n++) {
           nameOfDogs[n] = dogs[n].getName();
         }
-        System.out.println(o.getName() + " " + Arrays.toString(nameOfDogs));
+        System.out.println(o.getName() + " owns " + Arrays.toString(nameOfDogs));
       }
     }
   }
@@ -157,7 +172,6 @@ public class Assignment {
         System.out.println("Error: no such owner");
       } else {
         o.addDogToOwner(d);
-        d.addOwnerToDog(o);
         System.out.printf("%s now owns %s\n", o.getName(), d.getName());
       }
     }
