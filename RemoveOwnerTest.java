@@ -22,7 +22,7 @@ public class RemoveOwnerTest {
 
     System.out.println(banne.getOwner());
     System.out.println(annie.getOwner());
-    System.out.println(Arrays.toString(olle.getOwnedDogs()));
+    System.out.println(Arrays.toString(olle.getNameOfOwnedDogs()));
 
     System.out.println("-----------------------------------");
 
@@ -31,7 +31,7 @@ public class RemoveOwnerTest {
     System.out.println(a.findDog("Banne"));
     System.out.println(a.findDog("Annie"));
 
-    System.out.println(Arrays.toString(olle.getOwnedDogs()));
+    System.out.println(Arrays.toString(olle.getNameOfOwnedDogs()));
 
 
 

@@ -47,6 +47,12 @@ public class Owner {
     }
   }
 
+  public void removeAllDogsFromOwner(){
+    for (Dog dogToRemove : ownedDogs) {
+      removeDogFromOwner(dogToRemove);
+    }
+  }
+
   public void removeDogFromOwner(Dog d){
     ArrayList<Dog> tempHolding = new ArrayList<>();
     Dog[] shorterArray = new Dog[ownedDogs.length - 1];
@@ -66,8 +72,16 @@ public class Owner {
     ownedDogs = shorterArray;
   }
 
-  public Dog[] getOwnedDogs(){
-    return ownedDogs;
+  public String[] getNameOfOwnedDogs(){
+    String[] nameOfDogs = new String[ownedDogs.length];
+    for(int i = 0; i < ownedDogs.length; i++){
+      nameOfDogs[i] = ownedDogs[i].getName();
+    }
+    return nameOfDogs;
+  }
+
+  public boolean haveDogs(){
+    return ownedDogs.length > 0;
   }
 
   public String toString(){

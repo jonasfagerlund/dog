@@ -88,12 +88,13 @@ public class Assignment {
     Owner o = findOwner(name);
 
     if(o != null) {
-      if(o.getOwnedDogs().length > 0){
-        for(Dog dogToRemove : o.getOwnedDogs()){
-          Dog d = dogToRemove;
-          listOfDogs.remove(d);
-          o.removeDogFromOwner(d);
+      if(o.haveDogs()){
+        for(int i = 0; i < o.getNameOfOwnedDogs().length; i++){
+          String nameOfDogToDelete = o.getNameOfOwnedDogs()[i];
+          Dog dogToDelete = findDog(nameOfDogToDelete);
+          listOfDogs.remove(dogToDelete);
         }
+        o.removeAllDogsFromOwner();
       }
       listOfOwners.remove(listOfOwners.indexOf(o));
       System.out.println(o.getName() + " is removed from the register");
@@ -140,16 +141,9 @@ public class Assignment {
 
       for (int i = 0; i < listOfOwners.size(); i++) {
 
-        Owner o = listOfOwners.get(i);
+      Owner o = listOfOwners.get(i);
 
-        Dog[] dogs = o.getOwnedDogs();
-
-        String[] nameOfDogs = new String[dogs.length];
-
-        for (int n = 0; n < nameOfDogs.length; n++) {
-          nameOfDogs[n] = dogs[n].getName();
-        }
-        System.out.println(o.getName() + " owns " + Arrays.toString(nameOfDogs));
+      System.out.println(o.getName() + " owns " + Arrays.toString(o.getNameOfOwnedDogs()));
       }
     }
   }

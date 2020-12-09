@@ -38,7 +38,7 @@ public class DogTest {
 
   assignment.listOwners();
 
-  System.out.println(Arrays.toString(olle.getOwnedDogs()));
+  System.out.println(Arrays.toString(olle.getNameOfOwnedDogs()));
 
 
   }

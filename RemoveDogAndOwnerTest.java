@@ -17,14 +17,14 @@ public class RemoveDogAndOwnerTest {
     a.giveDogOwner();
 
     System.out.println(banne.getOwner());
-    System.out.println(Arrays.toString(olle.getOwnedDogs()));
+    System.out.println(Arrays.toString(olle.getNameOfOwnedDogs()));
 
     System.out.println("-----------------------------------");
 
     a.removeDog();
 
     System.out.println(banne.getOwner());
-    System.out.println(Arrays.toString(olle.getOwnedDogs()));
+    System.out.println(Arrays.toString(olle.getNameOfOwnedDogs()));
   }
   
 }
