@@ -12,6 +12,7 @@ public class Dog{
   private int weight;
   private double tailLength;
   private Owner owner;
+  private Auction auction;
 
   // konstruktor
   public Dog(String name, String breed, int age, int weight){
@@ -68,6 +69,22 @@ public class Dog{
      if(haveOwner()){
        owner = null;
      }
+   }
+
+   public boolean inAuction(){
+     return auction != null;
+   }
+
+   public Auction getAuction(){
+     return auction;
+   }
+
+   public void setAuction(Auction a){
+     this.auction = a;
+   }
+
+   public void removeAuctionFromDog(){
+     this.auction = null;
    }
 
   public String toString() {

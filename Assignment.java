@@ -24,15 +24,16 @@ public class Assignment {
   public static final String LIST_OWNERS_METHOD = "listOwners"; // U8.4
   public static final String OWNER_OF_DOG_METHOD = "ownSpecificDog"; // U8.5, obs! metoden ska ligga i Owner-klassen
   public static final String REMOVE_OWNER_METHOD = "removeOwner"; // U8.7 och U9.6
-  public static final String START_AUCTION_METHOD = ""; // U9.1 och framåt
-  public static final String FIND_AUCTION_METHOD = ""; // U9.2 - hjälpmetod tänkt att användas i de följande stegen
-  public static final String MAKE_BID_METHOD = ""; // U9.3 och framåt
-  public static final String LIST_BIDS_METHOD = ""; // U9.4 och framåt
-  public static final String LIST_AUCTIONS_METHOD = ""; // U9.5 och framåt
-  public static final String CLOSE_AUCTION_METHOD = ""; // U9.6
+  public static final String START_AUCTION_METHOD = "startAuction"; // U9.1 och framåt
+  public static final String FIND_AUCTION_METHOD = "findAuction"; // U9.2 - hjälpmetod tänkt att användas i de följande stegen
+  public static final String MAKE_BID_METHOD = "makeBid"; // U9.3 och framåt
+  public static final String LIST_BIDS_METHOD = "listBids"; // U9.4 och framåt
+  public static final String LIST_AUCTIONS_METHOD = "listAuctions"; // U9.5 och framåt
+  public static final String CLOSE_AUCTION_METHOD = "closeAuction"; // U9.6
 
   private ArrayList<Dog> listOfDogs = new ArrayList<>();
   private ArrayList<Owner> listOfOwners = new ArrayList<>();
+  private ArrayList<Auction> listOfAuctions = new ArrayList<>();
 
   private KeyboardInput keyboardInput = new KeyboardInput();
 
@@ -59,6 +60,88 @@ public class Assignment {
     return listOfOwners;
   }
 
+  public void listAuctions(){
+    if (listOfAuctions.isEmpty()) {
+      System.out.println("Error: no auctions in progress");
+    } else {
+      for (int i = 0; i < listOfAuctions.size(); i++){
+        Auction a = listOfAuctions.get(i);
+        System.out.printf("Auction #%s: %s. Top bids:\n", a.getAuctionId(), a.getDog().getName());
+        a.printThreeBids();
+      }
+    }
+  }
+
+  public void listBids(){
+    String name = keyboardInput.readString("Enter name of the dog");
+    Dog d = findDog(name);
+    
+    if (!d.inAuction()){
+      System.out.println("Error: this dog is not up for auction");
+      return;
+    }
+
+    Auction a = findAuction(d);
+
+    if (!a.haveBid()) {
+      System.out.println("No bids registred for this auction");
+    } else {
+      a.printBids();
+    }
+
+  }
+
+  public void makeBid(){
+    String ownerName = keyboardInput.readString("Enter name of the user");
+    Owner o = findOwner(ownerName);
+
+    if (o == null){
+      System.out.println("Error: no such user");
+      return;
+    }
+
+    String dogName = keyboardInput.readString("Enter name of the dog");
+    Dog d = findDog(dogName);
+
+    if (d == null){
+      System.out.println("Error: no such dog");
+      return;
+    } else if (!d.inAuction()) {
+      System.out.println("Error: this dog is not up for auction");
+    }
+
+    Auction a = findAuction(d);
+    receiveBid(a, o);
+
+  }
+
+  private void receiveBid(Auction a, Owner o) {
+    int lowestAmount = getLowestAllowedBid(a);
+
+    int bidAmount = 0;
+    do {
+      bidAmount = keyboardInput.readInt("Amount to bid (min " + lowestAmount + ")");
+      if (bidAmount < lowestAmount) {
+        System.out.println("Error: bid too low bid");
+      }
+    } while (bidAmount < lowestAmount);
+
+    a.addBid(new Bid(bidAmount, o));
+
+    System.out.println("Bid made");
+
+  }
+
+  private int getLowestAllowedBid(Auction a) {
+    if (!a.haveBid()) {
+      return 1;
+    } else {
+      return a.getHighestBid().getAmount() + 1;
+    }
+
+
+  }
+
   public void increaseAgeByOne() {
     String name = keyboardInput.readString("Enter the name of the dog");
     Dog dog = findDog(name);
@@ -74,8 +157,16 @@ public class Assignment {
     String name = keyboardInput.readString("Enter the name of the dog");
     Dog d = findDog(name);
     if (d != null) {
-      if (d.haveOwner()){d.getOwner().removeDogFromOwner(d);}
+      if (d.haveOwner()){
+        d.getOwner().removeDogFromOwner(d);
+      }
+
+      if (d.inAuction()) {
+        removeAuction(d);
+      }
+
       listOfDogs.remove(listOfDogs.indexOf(d));
+
       System.out.println(d.getName() + " is removed from the register");
 
     } else {
@@ -96,12 +187,73 @@ public class Assignment {
         }
         o.removeAllDogsFromOwner();
       }
+      removeAllBidsFromOwner(o);
       listOfOwners.remove(listOfOwners.indexOf(o));
       System.out.println(o.getName() + " is removed from the register");
     } else {
       System.out.println("Error: no such owner");
     }
   }
+
+  private void removeAllBidsFromOwner(Owner o){
+    ArrayList<Bid> bidsToRemove = new ArrayList<>();
+
+    for(Auction a : listOfAuctions){
+      Bid b = a.getBidFromGivenUser(o);
+      if (b != null) {
+        bidsToRemove.add(b);
+      }
+    }
+    for(Bid b : bidsToRemove) {
+      for(Auction a : listOfAuctions){
+        a.removeBid(b);
+      }
+
+    }
+  }
+
+  public Auction findAuction(Dog d){
+    if (d.inAuction()) {
+      return d.getAuction();
+    }
+    return null;
+  }
+
+  public void startAuction(){
+    String dogName = keyboardInput.readString("Enter name of the dog");
+    Dog d = findDog(dogName);
+
+    if(d == null) {
+      System.out.println("Error: no such dog");
+    } else if (d.haveOwner()) {
+      System.out.println("Error: this dog already has an owner");
+    } else if (d.inAuction()) {
+      System.out.println("Error: this dog is already up for auction");
+    } else {
+      Auction a = new Auction(d);
+      d.setAuction(a); 
+      listOfAuctions.add(a);
+    }
+  }
+
+  public void closeAuction(){
+    String name = keyboardInput.readString("Enter the name of the dog");
+    Dog d = findDog(name);
+    if (d == null || !d.inAuction()) {
+      System.out.println("Error: this dog is not up for auction");
+    } else if (d.getAuction().getHighestBid() == null){
+      System.out.println("The auction is closed. No bids were made for " + d.getName());
+      removeAuction(d);
+    } else {
+      Bid winningBid = d.getAuction().getHighestBid();
+      Owner winningOwner = winningBid.getBidder();
+      System.out.printf("The auction is closed. The winning bid was %skr and was made by %s", winningBid.getAmount(), winningOwner.getName());
+      listOfAuctions.remove(d.getAuction());
+      d.addOwnerToDog(winningOwner);
+    }
+  }
+
+
 
   public void addDog(Dog d) {
     listOfDogs.add(d);
@@ -165,8 +317,13 @@ public class Assignment {
       } else {
         o.addDogToOwner(d);
         System.out.printf("%s now owns %s\n", o.getName(), d.getName());
+        removeAuction(d);
       }
     }
+  }
+
+  private void removeAuction(Dog d){
+    listOfAuctions.remove(findAuction(d));
   }
 
   /**
