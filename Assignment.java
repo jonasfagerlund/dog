@@ -352,14 +352,26 @@ public class Assignment {
         if (dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()){
           listOfDogs.remove(dogInAction);
           listOfDogs.add(indexCounter, dogInAction);
-        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength() && dogInAction.getName().compareTo(listOfDogs.get(indexCounter).getName().substring(0, 2)) > 0) {
-          listOfDogs.remove(dogInAction);
-          listOfDogs.add(indexCounter, dogInAction);
+        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength()) {
+            double dogInActionStringValue = getStringValue(dogInAction.getName());
+            double comparisonDog = getStringValue(listOfDogs.get(indexCounter).getName());
+            if (dogInActionStringValue < comparisonDog) {
+              listOfDogs.remove(dogInAction);
+              listOfDogs.add(indexCounter, dogInAction);
+            }
         }
         indexCounter--;
       }
     }
     return listOfDogs;
+  }
+
+  private double getStringValue(String s){
+    double valueOfString = 0.0;
+    for(int i = 0; i < s.length(); i++){
+      valueOfString += (double)s.charAt(i);
+    }
+    return valueOfString / s.length();
   }
 
   public void listDogs() {
