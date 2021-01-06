@@ -84,6 +84,7 @@ public class Owner {
     return ownedDogs.length > 0;
   }
 
+  @Override
   public String toString(){
     return String.format("<%s owns%s>", name, Arrays.toString(nameOfOwnedDogs(ownedDogs)));
   }

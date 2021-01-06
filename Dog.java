@@ -6,6 +6,9 @@ import java.util.Arrays;
 
 public class Dog{
 
+  private static final double TAX_TAIL_LENGTH = 3.7;
+  private static final String[] TAX_BREED = { "Tax", "Dachshund", "Mäyräkoira", "Teckel" };
+
   private String name;
   private int age;
   private String breed;
@@ -96,9 +99,7 @@ public class Dog{
 
   // Metod för att räkna ut tailLength
   private void setTailLength(int age, String breed, double weight) {
-    String[] taxBreed = {"Tax", "Dachshund", "Mäyräkoira", "Teckel"};
-    final double TAX_TAIL_LENGTH = 3.7;
-    if (Arrays.stream(taxBreed).anyMatch(breed::equals)) {
+    if (Arrays.stream(TAX_BREED).anyMatch(breed::equals)) {
       tailLength = TAX_TAIL_LENGTH;
     } else {
       tailLength = age * weight / 10;

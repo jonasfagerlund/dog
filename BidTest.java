@@ -1,5 +1,3 @@
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
-
 public class BidTest {
 
   public static void main(String[] args) {

@@ -253,8 +253,6 @@ public class Assignment {
     }
   }
 
-
-
   public void addDog(Dog d) {
     listOfDogs.add(d);
   }
