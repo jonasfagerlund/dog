@@ -180,18 +180,22 @@ public class Assignment {
 
     if(o != null) {
       if(o.haveDogs()){
-        for(int i = 0; i < o.getNameOfOwnedDogs().length; i++){
-          String nameOfDogToDelete = o.getNameOfOwnedDogs()[i];
-          Dog dogToDelete = findDog(nameOfDogToDelete);
-          listOfDogs.remove(dogToDelete);
-        }
-        o.removeAllDogsFromOwner();
+        removeDogsWithGivenOwner(o);
+        // o.removeAllDogsFromOwner(); tveksamt om den är nödvändig
       }
       removeAllBidsFromOwner(o);
       listOfOwners.remove(listOfOwners.indexOf(o));
       System.out.println(o.getName() + " is removed from the register");
     } else {
       System.out.println("Error: no such owner");
+    }
+  }
+
+  private void removeDogsWithGivenOwner(Owner o){
+    for(int i = 0; i < o.getNameOfOwnedDogs().length; i++){
+      String nameOfDogToDelete = o.getNameOfOwnedDogs()[i];
+      Dog dogToDelete = findDog(nameOfDogToDelete);
+      listOfDogs.remove(dogToDelete);
     }
   }
 
@@ -230,10 +234,14 @@ public class Assignment {
     } else if (d.inAuction()) {
       System.out.println("Error: this dog is already up for auction");
     } else {
-      Auction a = new Auction(d);
-      d.setAuction(a); 
-      listOfAuctions.add(a);
+      initializeAuctions(d);
     }
+  }
+
+  private void initializeAuctions(Dog d){
+    Auction a = new Auction(d);
+    d.setAuction(a);
+    listOfAuctions.add(a);
   }
 
   public void closeAuction(){
@@ -287,14 +295,14 @@ public class Assignment {
 
     if (listOfOwners.size() == 0) {
       System.out.println("Error: no owners in register");
-    } else {
+      return;
+    }
 
-      for (int i = 0; i < listOfOwners.size(); i++) {
+    for (int i = 0; i < listOfOwners.size(); i++) {
 
       Owner o = listOfOwners.get(i);
 
       System.out.println(o.getName() + " owns " + Arrays.toString(o.getNameOfOwnedDogs()));
-      }
     }
   }
 
@@ -341,27 +349,33 @@ public class Assignment {
   public List<Dog> sortDogs() {
     for (int i = 1; i < listOfDogs.size(); i++) {
 
-      Dog dogInAction = listOfDogs.get(i);
-
       int indexCounter = i - 1;
 
-      while (indexCounter >= 0 && dogInAction.getTailLength() <= listOfDogs.get(indexCounter).getTailLength()) {
+      Dog dogInAction = listOfDogs.get(i);
+      double dogInActionTailLength = dogInAction.getTailLength();
+
+      while (indexCounter >= 0 && dogInActionTailLength <= listOfDogs.get(indexCounter).getTailLength()) {
         
-        if (dogInAction.getTailLength() < listOfDogs.get(indexCounter).getTailLength()){
-          listOfDogs.remove(dogInAction);
-          listOfDogs.add(indexCounter, dogInAction);
-        } else if (dogInAction.getTailLength() == listOfDogs.get(indexCounter).getTailLength()) {
+        if (dogInActionTailLength < listOfDogs.get(indexCounter).getTailLength()){
+          changeListPosition(dogInAction, indexCounter);
+        } else if (dogInActionTailLength == listOfDogs.get(indexCounter).getTailLength()) {
+
             double dogInActionStringValue = getStringValue(dogInAction.getName());
-            double comparisonDog = getStringValue(listOfDogs.get(indexCounter).getName());
-            if (dogInActionStringValue < comparisonDog) {
-              listOfDogs.remove(dogInAction);
-              listOfDogs.add(indexCounter, dogInAction);
+            double comparisonDogStringValue = getStringValue(listOfDogs.get(indexCounter).getName());
+            
+            if (dogInActionStringValue < comparisonDogStringValue) {
+              changeListPosition(dogInAction, indexCounter);
             }
         }
         indexCounter--;
       }
     }
     return listOfDogs;
+  }
+
+  private void changeListPosition(Dog d, int position) {
+    listOfDogs.remove(d);
+    listOfDogs.add(position, d);
   }
 
   private double getStringValue(String s){
