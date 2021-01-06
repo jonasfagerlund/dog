@@ -360,10 +360,12 @@ public class Assignment {
           changeListPosition(dogInAction, indexCounter);
         } else if (dogInActionTailLength == listOfDogs.get(indexCounter).getTailLength()) {
 
+          // Av någon anledning fick jag för mig att compareTo() inte skulle funka i detta fallet
+          // och skrev därför en helt ny metod för att jämföra strängar i bokstavordning. i
+          // retrospekt förstår jag att compareTo() funkar fint men låter min metod stå.
           if(compareStrings(dogInAction.getName(), listOfDogs.get(indexCounter).getName()).equals(dogInAction.getName())) {
             changeListPosition(dogInAction, indexCounter);
           }
-
         }
         indexCounter--;
       }
@@ -376,18 +378,18 @@ public class Assignment {
     listOfDogs.add(position, d);
   }
 
-  private String compareStrings(String str1, String str2){
-    char[] str1Arr = str1.toCharArray();
-    char[] str2Arr = str2.toCharArray();
+  private String compareStrings(String firstStr, String secondStr){
+    char[] firstStrArr = firstStr.toCharArray();
+    char[] secondStrArr = secondStr.toCharArray();
 
-    String shortestString = str1Arr.length < str2Arr.length ? str1 : str2;
+    String shortestString = firstStrArr.length < secondStrArr.length ? firstStr : secondStr;
 
     for(int i = 0; i < shortestString.length(); i++) {
 
-      if(str1Arr[i] < str2Arr[i]){
-        return str1;
-      } else if (str1Arr[i] > str2Arr[i]) {
-        return str2;
+      if(firstStrArr[i] < secondStrArr[i]){
+        return firstStr;
+      } else if (firstStrArr[i] > secondStrArr[i]) {
+        return secondStr;
       }
     }
     return shortestString;

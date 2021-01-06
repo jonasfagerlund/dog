@@ -24,7 +24,7 @@ public class RemoveDogAndOwnerTest {
     a.removeDog();
 
     System.out.println(banne.getOwner());
-    System.out.println(Arrays.toString(olle.getNameOfOwnedDogs()));
+    System.out.println(olle);
   }
   
 }
