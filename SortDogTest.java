@@ -13,6 +13,9 @@ public class SortDogTest {
     a.addDog(new Dog("Milou", "Dachshund", 5, 6));
     a.addDog(new Dog("Karo", "Labrador", 1, 2)); // minsta svanslängd
     a.addDog(new Dog("Milo", "Tax", 3, 4)); // Borde komma före Milou pga namnet
+    a.addDog(new Dog("Azzzzzzzzzzzzzzzz", "Tax", 3, 4));
+    a.addDog(new Dog("B", "Tax", 3, 4));
+
 
     // Alternativt, om man har svårt att komma på testdata kan man skapa hundar
     // slumpmässigt. Genom att variera antalet hundar, och slumpintervallen, kan man
@@ -21,6 +24,10 @@ public class SortDogTest {
     for (int i = 0; i < 10; i++) {
       a.addDog(new Dog("Dog" + i, "Ras", rnd.nextInt(5), rnd.nextInt(5)));
     }
+
+    // String rnd = "Jon";
+
+    // int t = (int)12.3;
 
     // Vill man ha en slumpmässig ordning på hundarna i listan kan man använda denna
     // metod. Då måste man dock köra testet många gånger, eftersom man kan få olika

@@ -360,12 +360,10 @@ public class Assignment {
           changeListPosition(dogInAction, indexCounter);
         } else if (dogInActionTailLength == listOfDogs.get(indexCounter).getTailLength()) {
 
-            double dogInActionStringValue = getStringValue(dogInAction.getName());
-            double comparisonDogStringValue = getStringValue(listOfDogs.get(indexCounter).getName());
-            
-            if (dogInActionStringValue < comparisonDogStringValue) {
-              changeListPosition(dogInAction, indexCounter);
-            }
+          if(compareStrings(dogInAction.getName(), listOfDogs.get(indexCounter).getName()).equals(dogInAction.getName())) {
+            changeListPosition(dogInAction, indexCounter);
+          }
+
         }
         indexCounter--;
       }
@@ -378,12 +376,21 @@ public class Assignment {
     listOfDogs.add(position, d);
   }
 
-  private double getStringValue(String s){
-    double valueOfString = 0.0;
-    for(int i = 0; i < s.length(); i++){
-      valueOfString += (double)s.charAt(i);
+  private String compareStrings(String str1, String str2){
+    char[] str1Arr = str1.toCharArray();
+    char[] str2Arr = str2.toCharArray();
+
+    String shortestString = str1Arr.length < str2Arr.length ? str1 : str2;
+
+    for(int i = 0; i < shortestString.length(); i++) {
+
+      if(str1Arr[i] < str2Arr[i]){
+        return str1;
+      } else if (str1Arr[i] > str2Arr[i]) {
+        return str2;
+      }
     }
-    return valueOfString / s.length();
+    return shortestString;
   }
 
   public void listDogs() {
