@@ -180,7 +180,12 @@ public class Assignment {
 
     if(o != null) {
       if(o.haveDogs()){
-        removeDogsWithGivenOwner(o);
+        for(Dog d : listOfDogs){
+          if(d.getOwner() == o ){
+            listOfDogs.remove(d);
+          }
+        }
+        // removeDogsWithGivenOwner(o);
         // o.removeAllDogsFromOwner(); tveksamt om den är nödvändig
       }
       removeAllBidsFromOwner(o);
@@ -302,7 +307,7 @@ public class Assignment {
 
       Owner o = listOfOwners.get(i);
 
-      System.out.println(o.getName() + " owns " + Arrays.toString(o.getNameOfOwnedDogs()));
+      System.out.println(o);
     }
   }
 
