@@ -59,7 +59,7 @@ public class DogRegister {
   private void handleCommand(String s){
     try {
       command = Commando.valueOf(s);
-    } catch (IllegalArgumentException | NullPointerException e) {
+    } catch (IllegalArgumentException e) {
       System.out.println("Error: unknown command");
       printMenu();
       handleCommand(readCommand());
