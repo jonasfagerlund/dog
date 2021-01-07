@@ -134,10 +134,8 @@ public class DogRegister {
 
     public static void main(String[] args) {
 
-        DogRegister dg = new DogRegister();
+        DogRegister dogRegister = new DogRegister();
 
-        dg.run();
-
-
+        dogRegister.run();
     }
 }

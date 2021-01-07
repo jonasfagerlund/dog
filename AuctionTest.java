@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class AuctionTest {
   
   public static void main(String[] args){
@@ -9,6 +11,10 @@ public class AuctionTest {
     
     Auction a1 = new Auction(d1);
     Auction a2 = new Auction(d2);
+
+    ArrayList<int> asa = new ArrayList<>();
+
+    asa.add(1);
 
     System.out.println(a1);
     System.out.println(a2);

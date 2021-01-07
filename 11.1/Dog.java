@@ -90,6 +90,7 @@ public class Dog {
         this.auction = null;
     }
 
+    @Override
     public String toString() {
         if (haveOwner()) {
             return String.format("<%s %d %s %d tail %s owner=%s>", name, age, breed, weight, tailLength, owner.getName());

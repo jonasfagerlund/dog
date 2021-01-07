@@ -1,18 +1,33 @@
+import java.util.*;
+
 public class CommandEnum {
-  public enum Commando {
-    REGISTER_NEW_DOG,
-    LIST_DOGS,
-    INCREASE_AGE,
-    REMOVE_DOG,
-    REGISTER_NEW_OWNER,
-    GIVE_DOG,
-    LIST_OWNERS,
-    REMOVE_OWNER,
-    START_AUCTION,
-    MAKE_BID,
-    LIST_BIDS,
-    LIST_AUCTIONS,
-    CLOSE_AUCTION,
-    EXIT
+
+  public void hej(){
+    System.out.println("Hej");
   }
+
+  public void da() {
+    System.out.println("da");
+  }
+
+
+  public static void main(String[] args){
+
+    CommandEnum ce = new CommandEnum();
+    
+    int x = 1;
+    int y = 0;
+
+    // if(x==y);
+    // ce.hej();
+    // ce.da();
+
+    // Det som är mellan % och d är det som formaterar värdet
+    System.out.printf("%03d", 1); // här skrivs 001 efter som 03 betyder tre nollar står är ursprunget
+
+
+
+
+
+}
 }
