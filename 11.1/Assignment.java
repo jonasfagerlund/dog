@@ -1,4 +1,3 @@
-
 /**
  * @author Jonas Andersson Fagerlund joan1043
  */
@@ -166,7 +165,7 @@ public class Assignment {
                 removeAuction(d);
             }
 
-            listOfDogs.remove(listOfDogs.indexOf(d));
+            listOfDogs.remove(d);
 
             System.out.println(d.getName() + " is removed from the register");
 
@@ -190,7 +189,7 @@ public class Assignment {
                 // o.removeAllDogsFromOwner(); tveksamt om den är nödvändig
             }
             removeAllBidsFromOwner(o);
-            listOfOwners.remove(listOfOwners.indexOf(o));
+            listOfOwners.remove(o);
             System.out.println(o.getName() + " is removed from the register");
         } else {
             System.out.println("Error: no such owner");
@@ -305,9 +304,7 @@ public class Assignment {
             return;
         }
 
-        for (int i = 0; i < listOfOwners.size(); i++) {
-
-            Owner o = listOfOwners.get(i);
+        for (Owner o : listOfOwners) {
 
             System.out.println(o);
         }
@@ -409,17 +406,17 @@ public class Assignment {
             System.out.println("Error: no dogs in register");
         } else {
             double tailLength = keyboardInput.readDouble("Smallest tail length to display");
-            for (int i = 0; i < listOfDogs.size(); i++) {
-                if (listOfDogs.get(i).getTailLength() >= tailLength) {
-                    dogsToDisplay.add(listOfDogs.get(i));
+            for (Dog listOfDog : listOfDogs) {
+                if (listOfDog.getTailLength() >= tailLength) {
+                    dogsToDisplay.add(listOfDog);
                 }
             }
             if (dogsToDisplay.size() == 0) {
                 System.out.println("Error: no dogs match that criteria");
             } else {
                 sortDogs(dogsToDisplay);
-                for (int i = 0; i < dogsToDisplay.size(); i++) {
-                    System.out.println(dogsToDisplay.get(i));
+                for (Dog dog : dogsToDisplay) {
+                    System.out.println(dog);
                 }
             }
         }
