@@ -12,7 +12,7 @@ public class AuctionTest {
     Auction a1 = new Auction(d1);
     Auction a2 = new Auction(d2);
 
-    ArrayList<int> asa = new ArrayList<>();
+    ArrayList<Integer> asa = new ArrayList<>();
 
     asa.add(1);
 
