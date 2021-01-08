@@ -24,30 +24,37 @@ public class DogRegister {
     KeyboardInput scanner = new KeyboardInput();
     Assignment a = new Assignment();
 
+    public void run() {
+      System.out.println("Välkommen!");
+      printMenu();
+      runCommandLoop();
+      System.out.println("Hej då");
+    }
+
+    private void printMenu() {
+      System.out.println("Följande kommandon finns");
+      System.out.println("* register new dog");
+      System.out.println("* increase age");
+      System.out.println("* list dogs");
+      System.out.println("* remove dog");
+      System.out.println("* register new owner");
+      System.out.println("* list owners");
+      System.out.println("* give dog");
+      System.out.println("* remove owner");
+      System.out.println("* start auction");
+      System.out.println("* list auctions");
+      System.out.println("* list bids");
+      System.out.println("* make bid");
+      System.out.println("* close auction");
+      System.out.println("* exit");
+    }
+
     private void runCommandLoop() {
         do {
             String input = readCommand();
             handleCommand(input);
             runSwitch();
         } while (command != Commando.EXIT);
-    }
-
-    private void printMenu() {
-        System.out.println("Följande kommandon finns");
-        System.out.println("* register new dog");
-        System.out.println("* increase age");
-        System.out.println("* list dogs");
-        System.out.println("* remove dog");
-        System.out.println("* register new owner");
-        System.out.println("* list owners");
-        System.out.println("* give dog");
-        System.out.println("* remove owner");
-        System.out.println("* start auction");
-        System.out.println("* list auctions");
-        System.out.println("* list bids");
-        System.out.println("* make bid");
-        System.out.println("* close auction");
-        System.out.println("* exit");
     }
 
     private String readCommand() {
@@ -123,14 +130,6 @@ public class DogRegister {
         }
 
     }
-
-    private void run() {
-        System.out.println("Välkommen!");
-        printMenu();
-        runCommandLoop();
-        System.out.println("Hej då");
-    }
-
 
     public static void main(String[] args) {
 
