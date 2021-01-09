@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e1824b4-922a-4972-8767-414dd71cf0ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/Assignment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/Auction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/Bid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/Dog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/DogRegister.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/KeyboardInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.1/Owner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Auction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuctionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BidTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DogOwnershipTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DogTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Format.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyboardInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyboardInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyboardInputTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListDogsAndOwnersTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DogRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/DogRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Owner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OwnerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RemoveDogAndOwnerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RemoveOwnerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SortDogTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dog/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dog/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dog/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dog/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dog/dog.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1mjzloDuGBPSQ2KTFwhv0PdFdtK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -76,6 +45,7 @@
       <workItem from="1610021942941" duration="4977000" />
       <workItem from="1610107465764" duration="108000" />
       <workItem from="1610188615806" duration="200000" />
+      <workItem from="1610197541891" duration="377000" />
     </task>
     <servers />
   </component>

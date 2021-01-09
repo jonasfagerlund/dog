@@ -32,7 +32,6 @@ public class DogRegister {
     // Metoder för att köra programmet
     public void run() {
         System.out.println("Välkommen!");
-        readCommand();
         runCommandLoop();
         System.out.println("Hej då");
     }
@@ -57,27 +56,27 @@ public class DogRegister {
 
     private void runCommandLoop() {
         do {
-            runSwitch();
             readCommand();
+            runSwitch();
         } while (command != Commando.EXIT);
     }
 
     private void readCommand() {
         String userInput;
         do {
-          printMenu();
-          userInput = scanner.readEnum("Command");
+            printMenu();
+            userInput = scanner.readEnum("Command");
         } while (!isInputValid(userInput));
         command = Commando.valueOf(userInput);
     }
 
-    private boolean isInputValid(String s){
-      for(Commando c : Commando.values()) {
-        if(c.name().equals(s)) {
-          return true;
+    private boolean isInputValid(String s) {
+        for (Commando c : Commando.values()) {
+            if (c.name().equals(s)) {
+                return true;
+            }
         }
-      }
-      return false;
+        return false;
     }
 
     private void runSwitch() {
@@ -282,9 +281,9 @@ public class DogRegister {
 
         if (o != null) {
             if (o.haveDogs()) {
-              removeAllDogsFromOwner(o);
+                removeAllDogsFromOwner(o);
             }
-            
+
             removeAllBidsFromOwner(o);
             listOfOwners.remove(o);
             System.out.println(o.getName() + " is removed from the register");
@@ -297,12 +296,12 @@ public class DogRegister {
         ArrayList<Dog> dogsToRemove = new ArrayList<>();
 
         for (Dog dog : listOfDogs) {
-          if(dog.getOwner() == o){
-            dogsToRemove.add(dog);
-          }
+            if (dog.getOwner() == o) {
+                dogsToRemove.add(dog);
+            }
         }
-        for(Dog dog : dogsToRemove){
-          listOfDogs.remove(dog);
+        for (Dog dog : dogsToRemove) {
+            listOfDogs.remove(dog);
         }
     }
 
@@ -398,8 +397,8 @@ public class DogRegister {
         Dog d = findDog(name);
 
         if (d == null) {
-          System.out.println("Error: no such dog");
-          return;
+            System.out.println("Error: no such dog");
+            return;
         }
 
         if (!d.inAuction()) {
