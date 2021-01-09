@@ -1,9 +1,9 @@
-import java.util.Arrays;
-import java.util.ArrayList;
-
 /**
  * @author Jonas Andersson Fagerlund joan1043
  */
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class Owner {
 
     private String name;
@@ -70,14 +70,6 @@ public class Owner {
         }
 
         ownedDogs = shorterArray;
-    }
-
-    public String[] getNameOfOwnedDogs() {
-        String[] nameOfDogs = new String[ownedDogs.length];
-        for (int i = 0; i < ownedDogs.length; i++) {
-            nameOfDogs[i] = ownedDogs[i].getName();
-        }
-        return nameOfDogs;
     }
 
     public boolean haveDogs() {

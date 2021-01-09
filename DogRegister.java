@@ -32,7 +32,7 @@ public class DogRegister {
     // Metoder för att köra programmet
     public void run() {
         System.out.println("Välkommen!");
-        printMenu();
+        readCommand();
         runCommandLoop();
         System.out.println("Hej då");
     }
@@ -57,26 +57,27 @@ public class DogRegister {
 
     private void runCommandLoop() {
         do {
-            String input = readCommand();
-            handleCommand(input);
             runSwitch();
+            readCommand();
         } while (command != Commando.EXIT);
     }
 
-    private String readCommand() {
-        String userInput = scanner.readEnum("Command");
-        return userInput;
-
+    private void readCommand() {
+        String userInput;
+        do {
+          printMenu();
+          userInput = scanner.readEnum("Command");
+        } while (!isInputValid(userInput));
+        command = Commando.valueOf(userInput);
     }
 
-    private void handleCommand(String s) {
-        try {
-            command = Commando.valueOf(s);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: unknown command");
-            printMenu();
-            handleCommand(readCommand());
+    private boolean isInputValid(String s){
+      for(Commando c : Commando.values()) {
+        if(c.name().equals(s)) {
+          return true;
         }
+      }
+      return false;
     }
 
     private void runSwitch() {
@@ -281,17 +282,27 @@ public class DogRegister {
 
         if (o != null) {
             if (o.haveDogs()) {
-                for (Dog d : listOfDogs) {
-                    if (d.getOwner() == o) {
-                        listOfDogs.remove(d);
-                    }
-                }
+              removeAllDogsFromOwner(o);
             }
+            
             removeAllBidsFromOwner(o);
             listOfOwners.remove(o);
             System.out.println(o.getName() + " is removed from the register");
         } else {
             System.out.println("Error: no such owner");
+        }
+    }
+
+    private void removeAllDogsFromOwner(Owner o) {
+        ArrayList<Dog> dogsToRemove = new ArrayList<>();
+
+        for (Dog dog : listOfDogs) {
+          if(dog.getOwner() == o){
+            dogsToRemove.add(dog);
+          }
+        }
+        for(Dog dog : dogsToRemove){
+          listOfDogs.remove(dog);
         }
     }
 
@@ -386,6 +397,11 @@ public class DogRegister {
         String name = scanner.readString("Enter name of the dog");
         Dog d = findDog(name);
 
+        if (d == null) {
+          System.out.println("Error: no such dog");
+          return;
+        }
+
         if (!d.inAuction()) {
             System.out.println("Error: this dog is not up for auction");
             return;
@@ -428,6 +444,7 @@ public class DogRegister {
                     winningOwner.getName());
             listOfAuctions.remove(d.getAuction());
             d.addOwnerToDog(winningOwner);
+            d.setAuction(null);
         }
     }
 
