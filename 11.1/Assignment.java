@@ -139,7 +139,6 @@ public class Assignment {
         } else {
             return a.getHighestBid().getAmount() + 1;
         }
-
     }
 
     public void increaseAgeByOne() {
@@ -299,7 +298,7 @@ public class Assignment {
 
     public void listOwners() {
 
-        if (listOfOwners.size() == 0) {
+        if (listOfOwners.isEmpty()) {
             System.out.println("Error: no owners in register");
             return;
         }
@@ -401,25 +400,25 @@ public class Assignment {
     }
 
     public void listDogs() {
-        ArrayList<Dog> dogsToDisplay = new ArrayList<>();
         if (listOfDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
-        } else {
-            double tailLength = keyboardInput.readDouble("Smallest tail length to display");
-            for (Dog listOfDog : listOfDogs) {
-                if (listOfDog.getTailLength() >= tailLength) {
-                    dogsToDisplay.add(listOfDog);
-                }
-            }
-            if (dogsToDisplay.size() == 0) {
-                System.out.println("Error: no dogs match that criteria");
-            } else {
-                sortDogs(dogsToDisplay);
-                for (Dog dog : dogsToDisplay) {
-                    System.out.println(dog);
-                }
+            return;
+        }
+        ArrayList<Dog> dogsToDisplay = new ArrayList<>();
+        double tailLength = keyboardInput.readDouble("Smallest tail length to display");
+        for (Dog dog : listOfDogs) {
+            if (dog.getTailLength() >= tailLength) {
+                dogsToDisplay.add(dog);
             }
         }
+        if (dogsToDisplay.size() == 0) {
+            System.out.println("Error: no dogs match that criteria");
+            return;
+        } 
+        sortDogs(dogsToDisplay);
+        for (Dog dog : dogsToDisplay) {
+            System.out.println(dog);
+        }    
     }
 
 }
