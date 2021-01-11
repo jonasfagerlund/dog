@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,7 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e1824b4-922a-4972-8767-414dd71cf0ac" name="Default Changelist" comment="" />
+    <list default="true" id="8e1824b4-922a-4972-8767-414dd71cf0ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classDiagra.uml" beforeDir="false" afterPath="$PROJECT_DIR$/classDiagra.uml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,19 +68,6 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,6 +83,8 @@
       <workItem from="1610198787168" duration="403000" />
       <workItem from="1610199694450" duration="312000" />
       <workItem from="1610200310659" duration="1387000" />
+      <workItem from="1610370277121" duration="228000" />
+      <workItem from="1610371142276" duration="739000" />
     </task>
     <servers />
   </component>
@@ -121,10 +116,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="482" y="291" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.0.1440.900@0.0.1440.900" timestamp="1610033661558" />
-    <state x="208" y="28" key="SettingsEditor" timestamp="1610201274422">
+    <state x="-120" y="41" key="SettingsEditor" timestamp="1610370587082">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="208" y="28" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1610201274422" />
+    <state x="-120" y="41" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1610370587082" />
     <state x="799" y="269" width="540" height="524" key="StructurePopup" timestamp="1610034963284">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -133,10 +128,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="199" key="extract.method.dialog/0.0.1440.900@0.0.1440.900" timestamp="1610034306983" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1610201234238">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1610371154516">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1610201234238" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1610371154516" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

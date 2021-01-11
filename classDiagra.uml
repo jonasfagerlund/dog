@@ -3,110 +3,96 @@
   <ID>JAVA</ID>
   <OriginalElement>Auction</OriginalElement>
   <nodes>
-    <node x="36.5" y="1330.0">Owner</node>
-    <node x="405.99930555555557" y="1363.5">KeyboardInput</node>
-    <node x="168.37916666666666" y="216.0">Auction</node>
-    <node x="-202.2320619074884" y="1784.1896529478786">DogRegister.Commando</node>
-    <node x="149.00000000000006" y="1656.0">DogRegister</node>
-    <node x="-84.58696306413427" y="392.92877293481735">Bid</node>
-    <node x="91.99930555555557" y="652.0">Dog</node>
+    <node x="236.0" y="1133.0">Owner</node>
+    <node x="0.0" y="1156.0">KeyboardInput</node>
+    <node x="345.70833333333337" y="172.0">Auction</node>
+    <node x="-183.6634026900865" y="550.0777950813062">DogRegister</node>
+    <node x="606.5" y="1068.0">DogRegister.Commando</node>
+    <node x="324.6041666666667" y="0.0">Bid</node>
+    <node x="303.5" y="565.0">Dog</node>
   </nodes>
   <notes />
   <edges>
     <edge source="Dog" target="Auction">
-      <point x="-70.5" y="-314.0" />
-      <point x="162.49930555555557" y="627.0" />
-      <point x="204.87916666666666" y="627.0" />
-      <point x="-109.5" y="193.0" />
+      <point x="-70.5" y="-226.5" />
+      <point x="374.0" y="540.0" />
+      <point x="394.375" y="540.0" />
+      <point x="-97.33333333333333" y="171.5" />
     </edge>
     <edge source="DogRegister" target="Auction">
-      <point x="79.99999999999996" y="-412.5" />
-      <point x="409.0" y="1636.0" />
-      <point x="395.49930555555557" y="1636.0" />
-      <point x="395.49930555555557" y="627.0" />
-      <point x="423.87916666666666" y="627.0" />
-      <point x="109.49999999999999" y="193.0" />
-    </edge>
-    <edge source="Dog" target="Owner">
-      <point x="0.0" y="314.0" />
-      <point x="232.99930555555557" y="1305.0" />
-      <point x="273.62500000000006" y="1305.0" />
-      <point x="101.62500000000006" y="-138.0" />
-    </edge>
-    <edge source="DogRegister" target="Owner">
-      <point x="-80.00000000000006" y="-412.5" />
-      <point x="249.0" y="1636.0" />
-      <point x="239.75" y="1636.0" />
-      <point x="67.75" y="138.0" />
+      <point x="72.0" y="-412.5" />
+      <point x="589.5" y="1483.0" />
+      <point x="596.0" y="1483.0" />
+      <point x="596.0" y="540.0" />
+      <point x="589.0416666666666" y="540.0" />
+      <point x="97.33333333333331" y="171.5" />
     </edge>
     <edge source="Bid" target="Owner">
-      <point x="0.0" y="83.0" />
-      <point x="31.71336148939824" y="609.2790163499668" />
-      <point x="46.58521382070862" y="647.3043814726911" />
-      <point x="67.71041666666665" y="1305.0" />
-      <point x="70.37500000000006" y="1305.0" />
-      <point x="-101.62499999999994" y="-138.0" />
+      <point x="-37.5" y="61.0" />
+      <point x="362.1041666666667" y="147.0" />
+      <point x="293.0" y="147.0" />
+      <point x="293.0" y="1043.0" />
+      <point x="281.1666666666667" y="1043.0" />
+      <point x="-90.33333333333331" y="-127.5" />
+    </edge>
+    <edge source="Dog" target="Owner">
+      <point x="0.0" y="226.5" />
+      <point x="444.5" y="1043.0" />
+      <point x="461.8333333333333" y="1043.0" />
+      <point x="90.33333333333331" y="-127.5" />
+    </edge>
+    <edge source="DogRegister" target="Owner">
+      <point x="-72.0" y="-412.5" />
+      <point x="445.5" y="1473.0" />
+      <point x="371.5" y="1473.0" />
+      <point x="0.0" y="127.5" />
     </edge>
     <edge source="Auction" target="Bid">
-      <point x="0.0" y="-193.0" />
-      <point x="147.49006418359915" y="414.927150167154" />
-      <point x="97.27596291237725" y="459.2900761436656" />
-      <point x="55.0" y="83.0" />
-    </edge>
-    <edge source="DogRegister.Commando" target="DogRegister">
-      <point x="-55.25" y="-192.5" />
-      <point x="78.58053792335011" y="1908.837938943248" />
-      <point x="116.47382349344412" y="1971.5323679972641" />
-      <point x="-90.0" y="412.5" />
+      <point x="0.0" y="-171.5" />
+      <point x="491.70833333333337" y="147.0" />
+      <point x="437.1041666666667" y="147.0" />
+      <point x="37.5" y="61.0" />
     </edge>
     <edge source="Auction" target="Dog">
-      <point x="-36.5" y="193.0" />
-      <point x="277.87916666666666" y="627.0" />
-      <point x="303.49930555555557" y="627.0" />
-      <point x="70.5" y="-314.0" />
+      <point x="0.0" y="171.5" />
+      <point x="491.70833333333337" y="540.0" />
+      <point x="515.0" y="540.0" />
+      <point x="70.5" y="-226.5" />
     </edge>
     <edge source="DogRegister" target="KeyboardInput">
-      <point x="159.99999999999994" y="-412.5" />
-      <point x="489.0" y="1636.0" />
-      <point x="567.9993055555556" y="1636.0" />
-      <point x="54.0" y="104.5" />
+      <point x="-144.0" y="-412.5" />
+      <point x="373.5" y="1483.0" />
+      <point x="108.0" y="1483.0" />
+      <point x="0.0" y="104.5" />
     </edge>
     <edge source="DogRegister" target="DogRegister.Commando">
-      <point x="90.00000000000001" y="412.5" />
-      <point x="85.22179503386462" y="2119.40878791897" />
-      <point x="65.25943702603558" y="2102.5086256422037" />
-      <point x="55.250000000000014" y="-192.5" />
+      <point x="144.0" y="-412.5" />
+      <point x="661.5" y="1483.0" />
+      <point x="717.0" y="1483.0" />
+      <point x="0.0" y="192.5" />
     </edge>
     <edge source="Owner" target="Dog">
-      <point x="33.87500000000006" y="-138.0" />
-      <point x="205.87500000000006" y="1305.0" />
-      <point x="176.5993055555556" y="1305.0" />
-      <point x="-56.39999999999998" y="314.0" />
-    </edge>
-    <edge source="DogRegister" target="Bid">
-      <point x="-160.00000000000006" y="-412.5" />
-      <point x="169.0" y="1636.0" />
-      <point x="26.0" y="1636.0" />
-      <point x="6.987317438637888" y="664.2045437494575" />
-      <point x="-21.174118226005845" y="607.166496065371" />
-      <point x="-55.0" y="83.0" />
+      <point x="0.0" y="-127.5" />
+      <point x="371.5" y="1043.0" />
+      <point x="350.5" y="1043.0" />
+      <point x="-94.0" y="226.5" />
     </edge>
     <edge source="DogRegister" target="Dog">
-      <point x="-40.00000000000006" y="-412.5" />
-      <point x="289.0" y="1626.0" />
-      <point x="328.95138888888886" y="1626.0" />
-      <point x="328.95138888888886" y="1305.0" />
-      <point x="289.39930555555554" y="1305.0" />
-      <point x="56.39999999999998" y="314.0" />
+      <point x="0.0" y="-412.5" />
+      <point x="517.5" y="1483.0" />
+      <point x="537.6875" y="1483.0" />
+      <point x="94.0" y="226.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.47336823570020253" x="61.75380101721521" y="1513.6578704231674" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.45858937670288225" x="811.6589424502663" y="1253.1880007251325" />
+  <SelectedNodes>
+    <node>DogRegister</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
-    <Category>Constructors</Category>
+    <Category>Properties</Category>
     <Category>Methods</Category>
-    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
