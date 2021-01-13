@@ -24,7 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e1824b4-922a-4972-8767-414dd71cf0ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classDiagra.uml" beforeDir="false" afterPath="$PROJECT_DIR$/classDiagra.uml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyboardInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyboardInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +68,19 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -85,6 +98,7 @@
       <workItem from="1610200310659" duration="1387000" />
       <workItem from="1610370277121" duration="228000" />
       <workItem from="1610371142276" duration="739000" />
+      <workItem from="1610532225935" duration="81000" />
     </task>
     <servers />
   </component>
@@ -108,6 +122,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="95" key="#Plugins/0.0.1440.900@0.0.1440.900" timestamp="1610200298853" />
+    <state x="208" y="28" key="#Project_Structure" timestamp="1610532262995">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="208" y="28" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1610532262995" />
     <state x="533" y="160" key="#com.intellij.ide.util.MemberChooser" timestamp="1610034376013">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

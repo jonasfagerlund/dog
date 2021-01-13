@@ -9,10 +9,10 @@ public class KeyboardInput {
     private static Scanner keyboardInput = new Scanner(System.in);
 
     public int readInt(String expectedInput) {
-      System.out.print(expectedInput + "?> ");
-      int userInput = keyboardInput.nextInt();
-      keyboardInput.nextLine();
-      return userInput;
+        System.out.print(expectedInput + "?> ");
+        int userInput = keyboardInput.nextInt();
+        keyboardInput.nextLine();
+        return userInput;
     }
 
     public double readDouble(String expectedInput) {
@@ -25,11 +25,11 @@ public class KeyboardInput {
     public String readString(String expectedInput) {
         String userInput;
         do {
-          System.out.print(expectedInput + "?> ");
-          userInput = keyboardInput.nextLine();
-          if(userInput.trim().equals("") || userInput == null){
-            System.out.println("Error: the name can't be blank");
-          }
+            System.out.print(expectedInput + "?> ");
+            userInput = keyboardInput.nextLine();
+            if (userInput.trim().equals("") || userInput == null) {
+                System.out.println("Error: the name can't be blank");
+            }
         } while (userInput.trim().equals("") || userInput == null);
         return capitalize(userInput);
     }
