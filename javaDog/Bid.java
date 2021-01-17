@@ -2,6 +2,8 @@
  * @author Jonas Andersson Fagerlund joan1043
  */
 
+package javaDog;
+
 public class Bid {
 
     private int amount;

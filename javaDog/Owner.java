@@ -2,6 +2,8 @@
  * @author Jonas Andersson Fagerlund joan1043
  */
 
+package javaDog;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 
