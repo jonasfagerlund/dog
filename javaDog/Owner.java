@@ -5,7 +5,6 @@
 package javaDog;
 
 import java.util.Arrays;
-import java.util.ArrayList;
 
 public class Owner {
 
@@ -57,19 +56,13 @@ public class Owner {
     }
 
     public void removeDogFromOwner(Dog d) {
-        ArrayList<Dog> tempHolding = new ArrayList<>();
         Dog[] shorterArray = new Dog[ownedDogs.length - 1];
 
-        for (Dog dogToCopy : ownedDogs) {
-            if (dogToCopy != d) {
-                tempHolding.add(dogToCopy);
-            } else {
-                d.removeOwnerFromOwner();
-            }
-        }
-
-        for (int i = 0; i < tempHolding.size(); i++) {
-            shorterArray[i] = tempHolding.get(i);
+        for(int i = 0, j = 0; i < ownedDogs.length; i++){
+          if(ownedDogs[i] != d){
+            shorterArray[j] = ownedDogs[i];
+            j++; 
+          }
         }
 
         ownedDogs = shorterArray;
