@@ -29,11 +29,7 @@ public class Owner {
     }
 
     public void addDogToOwner(Dog d) {
-        // Söker igenom ägarens lista av hundar för att se om den redan äger hunden.
-        // Behövs eftersom man kan etablera en relation mellan hund och ägare både
-        // från hund och ägarklassen. Utan detta och liknande som finns i dog.java
-        // skulle uppförandet av relation fastna i en evig loop.
-        if (!(Arrays.asList(ownedDogs).contains(d))) {
+        if (!checkOwnedDog(d)) {
 
             Dog[] longerArray = new Dog[ownedDogs.length + 1];
 
@@ -56,16 +52,18 @@ public class Owner {
     }
 
     public void removeDogFromOwner(Dog d) {
-        Dog[] shorterArray = new Dog[ownedDogs.length - 1];
+      Dog[] shorterArray = new Dog[ownedDogs.length - 1];
+      int indexCounter = 0;
 
-        for(int i = 0, j = 0; i < ownedDogs.length; i++){
-          if(ownedDogs[i] != d){
-            shorterArray[j] = ownedDogs[i];
-            j++; 
-          }
+      for (int i = 0; i < ownedDogs.length; i++) {
+        if (ownedDogs[i] == d) {
+          continue;
         }
+        shorterArray[indexCounter] = ownedDogs[i];
+        indexCounter++;
+      }
 
-        ownedDogs = shorterArray;
+      ownedDogs = shorterArray;
     }
 
     public boolean haveDogs() {
@@ -75,6 +73,15 @@ public class Owner {
     @Override
     public String toString() {
         return String.format("<%s owns%s>", name, Arrays.toString(nameOfOwnedDogs(ownedDogs)));
+    }
+
+    private boolean checkOwnedDog(Dog d) {
+      for(int i = 0; i < ownedDogs.length; i++){
+        if(ownedDogs[i] == d) {
+          return true;
+        }
+      }
+      return false;
     }
 
     private String[] nameOfOwnedDogs(Dog[] ownedDogs) {
