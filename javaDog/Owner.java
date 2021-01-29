@@ -52,18 +52,18 @@ public class Owner {
     }
 
     public void removeDogFromOwner(Dog d) {
-      Dog[] shorterArray = new Dog[ownedDogs.length - 1];
-      int indexCounter = 0;
+        Dog[] shorterArray = new Dog[ownedDogs.length - 1];
+        int indexCounter = 0;
 
-      for (int i = 0; i < ownedDogs.length; i++) {
-        if (ownedDogs[i] == d) {
-          continue;
+        for (int i = 0; i < ownedDogs.length; i++) {
+            if (ownedDogs[i] == d) {
+                continue;
+            }
+            shorterArray[indexCounter] = ownedDogs[i];
+            indexCounter++;
         }
-        shorterArray[indexCounter] = ownedDogs[i];
-        indexCounter++;
-      }
 
-      ownedDogs = shorterArray;
+        ownedDogs = shorterArray;
     }
 
     public boolean haveDogs() {
@@ -76,12 +76,12 @@ public class Owner {
     }
 
     private boolean checkOwnedDog(Dog d) {
-      for(int i = 0; i < ownedDogs.length; i++){
-        if(ownedDogs[i] == d) {
-          return true;
+        for (int i = 0; i < ownedDogs.length; i++) {
+            if (ownedDogs[i] == d) {
+                return true;
+            }
         }
-      }
-      return false;
+        return false;
     }
 
     private String[] nameOfOwnedDogs(Dog[] ownedDogs) {
